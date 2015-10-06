@@ -1,0 +1,16 @@
+{
+  "name": "stripe-lambda",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TaylorBriggs/stripe-lambda.git"
+  },
+  "version": "1.0.0",
+  "description": "A Lambda function for charging cards with Stripe",
+  "main": "index.js",
+  "author": "Taylor Briggs",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "stripe": "^4.0.0"
+  }
+}

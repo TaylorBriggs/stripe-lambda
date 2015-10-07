@@ -10,10 +10,10 @@ Set your Stripe secret key in the `.env` file. Copy the sample to get started:
 $ cp .env.sample .env
 ```
 
-Include it in your Lambda zip archive:
+Use the script to create your zip archive:
 
 ```
-$ zip -r stripe-lambda.zip .env index.js node_modules/
+$ npm run zip
 ```
 
 Integrate with the

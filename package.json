@@ -12,5 +12,8 @@
   "dependencies": {
     "dotenv": "^1.2.0",
     "stripe": "^4.0.0"
-  }
+  },
+  "scripts": {
+    "zip": "zip -r stripe-lambda.zip .env index.js node_modules/"
+  },
 }

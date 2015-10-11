@@ -15,5 +15,5 @@
   },
   "scripts": {
     "zip": "zip -r stripe-lambda.zip .env index.js node_modules/"
-  },
+  }
 }

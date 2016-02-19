@@ -1,6 +1,6 @@
 # Stripe Lambda
 
-A Lambda function for charging cards with Stripe.
+A Lambda function for charging cards with Stripe. Only intended for use with the [Stripe Checkout](https://stripe.com/checkout) widget.
 
 ##  Authentication
 

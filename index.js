@@ -6,8 +6,8 @@ exports.handler = function(event, context) {
   stripe.charges.create({
     amount:        event.amount,
     source:        event.source,
-    currency:      'usd',
-    description:   'donation',
+    currency:      event.currency || 'usd',
+    description:   event.description || 'Stripe payment issued for Marketcloud order'+event.order_id,
     receipt_email: event.receipt_email || null
   }, function(err, charge) {
     if (err && err.type === 'card_error') {

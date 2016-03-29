@@ -16,6 +16,20 @@ Use the script to create your zip archive:
 $ npm run zip
 ```
 
+Create your Lambda function on [AWS Lambda](aws.amazon.com/lambda)
+
+Configure the test event : 
+
+```
+{
+    "amount": 10.59,
+    "source": "source",
+    "currency": "usd",
+    "description": "This is a description for testing",
+    "receipt_email": "yourTestingEmail@gmail.com"
+}
+```
+
 Integrate with the
 [AWS API Gateway](http://docs.aws.amazon.com/lambda/latest/dg/gs-amazon-gateway-integration.html)
 to access the function via HTTP POST:

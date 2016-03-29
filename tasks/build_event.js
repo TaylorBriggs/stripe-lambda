@@ -1,6 +1,7 @@
 
 var getToken = require("../lib/token")
 var fs = require("fs");
+require('dotenv').load();
 
 module.exports = function(grunt) {
   grunt.registerTask('build_event', 'package the app', function() {
@@ -18,7 +19,7 @@ module.exports = function(grunt) {
           "amount" : 2000,
           "currency" : "usd",
           "description" : "test description",
-          "receipt_email" : "pierre@getklap.com"
+          "receipt_email" : process.env.RECEIPT_EMAIL
       }, null, 4) , 'utf8', function(err){
         done();
       });

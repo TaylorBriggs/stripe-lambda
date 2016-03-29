@@ -7,7 +7,7 @@ exports.handler = function(event, context) {
     amount:        event.amount,
     source:        event.source,
     currency:      event.currency || 'usd',
-    description:   event.description || 'Stripe payment issued for Marketcloud order'+event.order_id,
+    description:   event.description || 'Stripe payment '+event.order_id,
     receipt_email: event.receipt_email || null
   }, function(err, charge) {
     if (err && err.type === 'card_error') {

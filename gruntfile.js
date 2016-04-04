@@ -20,7 +20,6 @@ module.exports = function(grunt) {
       lambda_invoke: {
           default: {
               options: {
-                  // Task-specific options go here.
               }
           }
       },
@@ -28,7 +27,6 @@ module.exports = function(grunt) {
           default: {
               options: {
                 include_files : [".env"]
-                  // Task-specific options go here.
               }
           }
       },
@@ -38,13 +36,14 @@ module.exports = function(grunt) {
               options: {
                 enableVersioning: true,
                 region: process.env.AWS_REGION
-                  // Task-specific options go here.
               }
           }
       }
   });
 
   grunt.registerTask('run', ['build_event','lambda_invoke']);
+
+  grunt.registerTask('package', ['run', 'build_event', 'lambda_package']);
 
   grunt.registerTask('deploy', ['run', 'build_event', 'lambda_package', 'lambda_deploy']);
 

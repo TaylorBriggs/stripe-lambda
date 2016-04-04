@@ -11,9 +11,15 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^1.2.0",
+    "load-grunt-tasks": "^3.4.1",
     "stripe": "^4.0.0"
   },
   "scripts": {
     "zip": "zip -r stripe-lambda.zip .env index.js node_modules/"
+  },
+  "devDependencies": {
+    "grunt-aws-lambda": "^0.12.0",
+    "grunt": "0.4.*",
+    "grunt-pack": "0.1.*"
   }
 }

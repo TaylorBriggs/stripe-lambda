@@ -14,6 +14,9 @@ module.exports = function(grunt) {
       "exp_year": 2017,
       "cvc": "123"
     },function(err, token){
+      if (err) {
+        grunt.log.writeln(err);
+      }
       fs.writeFile("event.json", JSON.stringify({
           "source" : token,
           "amount" : 2000,

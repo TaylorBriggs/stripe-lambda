@@ -3,10 +3,11 @@ var qs = require('qs');
 
 var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-exports.handler = function(event, context) {
+exports.handler = function(event, context, callback) {
   console.log("event: \n" + JSON.stringify(event, null, 4));
   var data = qs.parse(event.body);
   console.log("body: \n" + JSON.stringify(data, null, 4));
+
   var customer = stripe.customers.create({
     source: data.stripeToken,
     email: data.stripeEmail,
@@ -21,4 +22,12 @@ exports.handler = function(event, context) {
       context.succeed({ status: charge.status, success : true });
     }
   });
+  var response = {
+    statusCode: 301,
+    headers: {
+      "Location" : "http://littlefriend.co/success"
+    },
+    body: null
+  };
+  callback(null, response);
 };

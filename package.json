@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^1.2.0",
     "load-grunt-tasks": "^3.4.1",
+    "qs": "^6.5.1",
     "stripe": "^4.0.0"
   },
   "scripts": {

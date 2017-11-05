@@ -14,20 +14,26 @@ exports.handler = function(event, context, callback) {
     description: "Customer for " + data.stripeEmail,
     plan: 'littleFriendIG500'
   }, function(err, charge) {
-    if (err && err.type === 'card_error') {
-      context.fail(new Error(err.message));
-    } else if(err){
-      context.fail(err);
+    if (err) {
+      console.log(err.type + ": " + err.message + ". (code: " + err.code + ")");
+      context.succeed({
+        "statusCode": 302,
+        "headers": { "Location" : "http://littlefriend.co/error?type=" + err.type },
+        "body": ""
+      });
     } else {
-      context.succeed({ status: charge.status, success : true });
+      context.succeed({
+        "statusCode": 302,
+        "headers": { "Location" : "http://littlefriend.co/success" },
+        "body": ""
+      });
     }
+    //if (err && err.type === 'card_error') {
+    //  context.fail(new Error(err.message));
+    //} else if(err){
+    //  context.fail(err);
+    //} else {
+    //  context.succeed({ status: charge.status, success : true });
+    //}
   });
-  var response = {
-    statusCode: 301,
-    headers: {
-      "Location" : "http://littlefriend.co/success"
-    },
-    body: null
-  };
-  callback(null, response);
 };

@@ -1,3 +1,8 @@
-gruntfile.js
 dist
+lib
+tasks
+
+Gruntfile.js
+event.json
+
 *.iml
